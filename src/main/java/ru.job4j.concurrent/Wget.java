@@ -7,11 +7,11 @@ public class Wget {
                 () -> {
                     try {
                         System.out.println("Start loading ... ");
-                        long start = System.currentTimeMillis();
-                        long end = start + 3000;
-                        while (System.currentTimeMillis() < end) {
-                            System.out.println("\rLoading : " + (System.currentTimeMillis() - start) * 100 / (end - start) + "%");
+                        int index = 1;
+                        while (index < 100) {
+                            System.out.println("\rLoading : " + index + "%");
                             Thread.sleep(30);
+                            index = index + 1;
                         }
                         System.out.println("Loaded.");
                     } catch (InterruptedException e) {
