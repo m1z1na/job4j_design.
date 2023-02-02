@@ -13,15 +13,22 @@ public class ConsoleProgress implements Runnable {
     public void run() {
         var process = new String[]{"-", "\\", "|", "/"};
         int counter = 0;
+
         while (!Thread.currentThread().isInterrupted()) {
+            try {
+                Thread.sleep(100);
+                System.out.print("\r load: " + process[counter]);
 
-            System.out.print("\r load: " + process[counter]);
+                if (counter + 1 == process.length) {
+                    counter = 0;
+                } else {
+                    counter = ++counter;
+                }
 
-            if (counter + 1 == process.length) {
-                counter = 0;
-            } else {
-                counter = ++counter;
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
+
         }
     }
 }
