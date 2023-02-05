@@ -12,7 +12,6 @@ public class ConsoleProgress implements Runnable {
     @Override
     public void run() {
         var process = new String[]{"-", "\\", "|", "/"};
-        int counter = 0;
         while (!Thread.currentThread().isInterrupted()) {
             try {
                 for (int i = 0; i < process.length; i++) {
