@@ -1,7 +1,5 @@
 package ru.job4j.threadlocal;
 
-import jdk.internal.access.JavaIOFileDescriptorAccess;
-
 public class ThreadLocalDemo {
 
     public static ThreadLocal<String> tl = new ThreadLocal<>();
