@@ -1,7 +1,7 @@
 package ru.job4j;
 
-import ru.job4j.lombok.Category;
-import ru.job4j.lombok.Permission;
+import org.mapstruct.factory.Mappers;
+import ru.job4j.lombok.*;
 
 public class Hotfix {
     public static void main(String[] args) {
@@ -20,6 +20,12 @@ public class Hotfix {
                 .accessBy("run")
                 .build();
         System.out.println(permission);
+
+
+        StudentSubjectMapper studentSubjectMapper = Mappers.getMapper(StudentSubjectMapper.class);
+        StudentSubject sSubjectEntity = new StudentSubject(0,"тема", "ква"); 
+        StudentSubjectDto fromSubjectEntity = studentSubjectMapper.getModelFromEntity(sSubjectEntity);
+        System.out.println("fromSubjectDto = " + fromSubjectEntity);
 
     }
 }
